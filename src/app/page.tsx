@@ -1,11 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import LegoWall from "@/components/loading/LegoWall";
-import BigAhhChicken from "@/components/landingpage/herosection/BigAhhChicken";
-import MenuSections from "@/components/landingpage/herosection/MenuSections";
 import Schedule from "@/components/schedule/Schedule";
-import Speakers from "@/components/landingpage/speakers/Example";
+import Speakers from "@/components/speakers/Speakers";
+import LegoWall from "@/components/loading/LegoWall";
+import Hero from "@/components/hero/Hero";
+import About from "@/components/about/About";
+import Footer from "@/components/footer/Footer";
+import { useEffect, useState } from "react";
+
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -20,21 +22,18 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
+    <div className=" overflow-hidden ">
       {isLoading ? (
         <LegoWall />
       ) : (
-        <main>
-          <MenuSections />
-          <BigAhhChicken />
+        <main className="pt-22 bg-[auto_70%] bg-repeat bg-[url('../../public/backgroundLanding.jpg')]">
+          <Hero />
+          <About/>
           <Schedule />
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {Array.from({ length: 9 }).map((_, index) => (
-                <Speakers key={index} index={index} />
-              ))}
-            </div>
+          <Speakers/>
+          <Footer/>
         </main>
-      )}
+        )}
     </div>
   );
 }

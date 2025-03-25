@@ -1,57 +1,82 @@
-'use client'
+"use client";
 
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState,  } from "react";
 import Image from "next/image";
-import GenerateQrButton from "./GenerateQRButton";
+import NavbarButton from "./NavbarButton";
 
-    const Navbar: React.FC = () => {
-        const [isScrolling, setIsScrolling] = useState(false);  
-        useEffect(() => {
-            const handleScroll = () => {
-                if (window.scrollY > 1) {
-                    setIsScrolling(true);
-                } else {
-                    setIsScrolling(false);
-                }
-            }
-            window.addEventListener("scroll", handleScroll);    
-            return() => {
-                window.removeEventListener("scroll", handleScroll);
-            };
-        }, []);
+const Navbar: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
     
-    return(
-        
-        <div id="navbar-container" className={`z-10 overflow-hidden transition hidden text-xl md:flex w-full h-19 content-center items-center justify-between sticky top-0 ${isScrolling ? "bg-black text-white border-white" : "bg-transparent border-zinc-800"}`}>
-            <div className="h-[55px] justify-start items-center gap-[37px] inline-flex">
-                
-                <a href="/">
-                    <div className="self-stretch justify-start items-center gap-2 flex ml-4 transition-all duration-100 hover:scale-106">
-                        <img className="w-10 h-[36.67px]" src="/homeIcon.png" />
-                        <div className="font-normal font-['Cera Pro'] leading-normal">INICIO</div>
-                    </div>
-                </a>
-            
-                <a href="/record">
-                    <div className="self-stretch justify-start items-center gap-2 flex transition-all duration-100 hover:scale-106">
-                        <img className="w-10 h-[27.06px]" src="/AsistenciaIcon.png"/>
-                        <div className="font-normal font-['Cera Pro'] leading-normal">ASISTENCIAS</div>
-                    </div>
-                </a>
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isMenuOpen]);
 
-            </div>
-            <div className="w-fit h-fit self-center items-center absolute left-1/2 transform -translate-x-1/2 transition-all duration-100 hover:scale-106">
-                <Image src={"/SACIcon.png"} alt="Picture of SAC" width={100} height={100} unoptimized={true}/>
-            </div>
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
-            <a href="/generateqr">
-                <div className="pl-10 transition-all duration-100 hover:scale-106">
-                    <GenerateQrButton/>
-                </div>
-            </a>
+  return (
+    <>
+      <header className="fixed top-0 left-0 right-0 z-50">
+        <div id="navbar-container" className={`flex h-[8dvh] transition text-xl w-full content-center items-center justify-between bg-black`}>
+          <div className="hidden md:flex md:flex-row px-4 gap-4 md:w-fit md:h-fit">
+            <NavbarButton text={"Inicio"} styling={""} imageUrl={"/homeIcon.png"} linkUrl={"/"} tStyling={""} width={45} height={90}/>
+            <NavbarButton text={"Asistencia"} styling={""} imageUrl={"/AsistenciaIcon.png"} linkUrl={"/record"} tStyling={""} width={45} height={90}/>
+          </div>
 
+          <div className="md:hidden px-4">
+            <button onClick={toggleMenu} className="flex flex-col justify-center items-center w-10 h-10 z-30">
+              <span className={`block w-6 h-0.5 mb-1.5 transition-all bg-white`}></span>
+              <span className={`block w-6 h-0.5 mb-1.5 transition-all bg-white`}></span>
+              <span className={`block w-6 h-0.5 transition-all bg-white`}></span>
+            </button>
+          </div>
+
+          <div className="px-2">
+            <Image className="transition-all duration-100 hover:scale-106" src={"/SACIcon.png"} alt={"Sac Icon"} width={100} height={100}/>
+          </div>
+
+          <div className="px-4">
+            <NavbarButton 
+              text={"Generar qr"} 
+              styling={`md:border-2 md:border-whitesac md:rounded-full md:px-6 md:py-1 text-white`} 
+              imageUrl={"/QRLegoHead.svg"} 
+              linkUrl={"/expsearch"} 
+              tStyling={"hidden md:block text-xl font-medium font-['Cera_Pro'] leading-normal"} 
+              width={34} 
+              height={82}
+            />
+          </div>
         </div>
-    );
-}
+      </header> 
+
+      <div className="h-[8vh]"></div>
+
+      <div 
+        className={`fixed inset-0 bg-transparent backdrop-blur-xs z-40 md:hidden transition-opacity duration-300 ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        onClick={toggleMenu}
+      ></div>
+
+      <div className={`fixed top-0 left-0 w-64 h-full bg-bluesac z-50 md:hidden transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+        <div className="pt-24 px-4 flex flex-col gap-10">
+          <div className="w-fit">        
+            <NavbarButton text={"Inicio"} styling={""} imageUrl={"/homeIcon.png"} linkUrl={"/"} tStyling={""} width={45} height={90}/>
+          </div>
+          <div className="w-fit">        
+            <NavbarButton text={"Asistencia"} styling={""} imageUrl={"/AsistenciaIcon.png"} linkUrl={"/record"} tStyling={""} width={45} height={90}/>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default Navbar;
