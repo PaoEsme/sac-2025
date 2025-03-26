@@ -2,71 +2,288 @@ import React from "react";
 
 function Tablas() {
   return (
-    <div className="page" style={{ fontFamily: "Arial, sans-serif", textAlign: "center", marginBottom: "500px", marginTop: "300px" }}>
-      <div style={{width: '100%', display: 'flex', justifyContent: 'center', marginBottom: '15px'}}>
-        <div style={{width: '60%', height: '50px', background: '#FFD83C', justifyContent: 'center', alignItems: 'center', display: 'inline-flex'}}>
-          <div style={{color: 'white', fontSize: 16, fontFamily: 'Cera Pro', fontWeight: '700'}}>Martes, 31 de Febrero</div>
+    <div style={{ 
+      width: "100%",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: "20px",
+      marginTop: "300px",
+      marginBottom: "50px"
+    }}>
+      {/* Título del día */}
+      <div style={{
+        width: "60%",
+        background: "#FFD83C",
+        padding: "10px",
+        borderRadius: "4px",
+        textAlign: "center"
+      }}>
+        <div style={{
+          color: "white",
+          fontSize: "16px",
+          fontFamily: "Cera Pro",
+          fontWeight: "700"
+        }}>
+          Martes, 31 de Febrero
         </div>
       </div>
 
-      <div style={{width: '80%', height: '400px', justifyContent: 'flex-start', alignItems: 'center', display: 'inline-flex'}}>
-        <div style={{width: 120, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', display: 'inline-flex'}}>
-          <div style={{alignSelf: 'stretch', flex: '1 1 0', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', display: 'flex'}}>
-            <div style={{alignSelf: 'stretch', paddingLeft: 10, paddingRight: 10, justifyContent: 'space-between', alignItems: 'center', display: 'inline-flex'}}>
-              <div style={{width: 25, height: 9, background: '#F75E63'}} />
-              <div style={{width: 25, height: 9, background: '#F75E63'}} />
+      {/* Contenedor de horarios y eventos */}
+      <div style={{
+        width: "80%",
+        display: "flex",
+        gap: "10px",
+        height: "250px"
+      }}>
+        {/* Columna de horarios */}
+        <div style={{
+          width: "120px",
+          display: "flex",
+          flexDirection: "column",
+          gap: "10px"
+        }}>
+          {/* Horario 1 */}
+          <div style={{
+            flex: 1,
+            background: "#F75E63",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "10px",
+            borderRadius: "4px"
+          }}>
+            <div style={{
+              background: "white",
+              padding: "5px 10px",
+              borderRadius: "25px",
+              fontSize: "12px",
+              fontFamily: "Cera Pro",
+              fontWeight: "500",
+              whiteSpace: "nowrap"
+            }}>
+              7:00 - 9:00
             </div>
-            <div style={{alignSelf: 'stretch', flex: '1 1 0', paddingLeft: 20, paddingRight: 20, paddingTop: 35, paddingBottom: 35, background: '#F75E63', overflow: 'hidden', justifyContent: 'center', alignItems: 'center', gap: 10, display: 'inline-flex'}}>
-              <div style={{width: '100%', paddingTop: 2, paddingBottom: 2, background: 'white', overflow: 'hidden', borderRadius: 25, justifyContent: 'center', alignItems: 'center', gap: 10, display: 'flex'}}>
-                <div style={{color: 'black', fontSize: 14, fontFamily: 'Cera Pro', fontWeight: '500'}}>7:00 - 9:00</div>
-              </div>
-            </div>  
           </div>
-          <div style={{alignSelf: 'stretch', flex: '1 1 0', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', display: 'flex'}}>
-            <div style={{alignSelf: 'stretch', flex: '1 1 0', paddingLeft: 20, paddingRight: 20, paddingTop: 35, paddingBottom: 35, background: '#42CDFF', overflow: 'hidden', justifyContent: 'center', alignItems: 'center', gap: 10, display: 'inline-flex'}}>
-              <div style={{width: '100%', paddingTop: 2, paddingBottom: 2, background: 'white', overflow: 'hidden', borderRadius: 25, justifyContent: 'center', alignItems: 'center', gap: 10, display: 'flex'}}>
-                <div style={{color: 'black', fontSize: 14, fontFamily: 'Cera Pro', fontWeight: '500'}}>7:00 - 9:00</div>
-              </div>
+
+          {/* Horario 2 */}
+          <div style={{
+            flex: 1,
+            background: "#42CDFF",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "10px",
+            borderRadius: "4px"
+          }}>
+            <div style={{
+              background: "white",
+              padding: "5px 10px",
+              borderRadius: "25px",
+              fontSize: "12px",
+              fontFamily: "Cera Pro",
+              fontWeight: "500",
+              whiteSpace: "nowrap"
+            }}>
+              7:00 - 9:00
             </div>
           </div>
-          <div style={{alignSelf: 'stretch', flex: '1 1 0', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', display: 'flex'}}>
-            <div style={{alignSelf: 'stretch', flex: '1 1 0', paddingLeft: 20, paddingRight: 20, paddingTop: 35, paddingBottom: 35, background: '#FFDF62', overflow: 'hidden', justifyContent: 'center', alignItems: 'center', gap: 10, display: 'inline-flex'}}>
-              <div style={{width: '100%', paddingTop: 2, paddingBottom: 2, background: 'white', overflow: 'hidden', borderRadius: 25, justifyContent: 'center', alignItems: 'center', gap: 10, display: 'flex'}}>
-                <div style={{color: 'black', fontSize: 14, fontFamily: 'Cera Pro', fontWeight: '500'}}>7:00 - 9:00</div>
-              </div>
+
+          {/* Horario 3 */}
+          <div style={{
+            flex: 1,
+            background: "#FFDF62",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "10px",
+            borderRadius: "4px"
+          }}>
+            <div style={{
+              background: "white",
+              padding: "5px 10px",
+              borderRadius: "25px",
+              fontSize: "12px",
+              fontFamily: "Cera Pro",
+              fontWeight: "500",
+              whiteSpace: "nowrap"
+            }}>
+              7:00 - 9:00
             </div>
           </div>
-          <div style={{alignSelf: 'stretch', flex: '1 1 0', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', display: 'flex'}}>
-            <div style={{alignSelf: 'stretch', flex: '1 1 0', paddingLeft: 20, paddingRight: 20, paddingTop: 35, paddingBottom: 35, background: '#C5F06F', overflow: 'hidden', justifyContent: 'center', alignItems: 'center', display: 'inline-flex'}}>
-              <div style={{width: '100%', paddingTop: 2, paddingBottom: 2, background: 'white', overflow: 'hidden', borderRadius: 25, justifyContent: 'center', alignItems: 'center', gap: 10, display: 'flex'}}>
-                <div style={{color: 'black', fontSize: 14, fontFamily: 'Cera Pro', fontWeight: '500'}}>7:00 - 9:00</div>
-              </div>
+
+          {/* Horario 4 */}
+          <div style={{
+            flex: 1,
+            background: "#C5F06F",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "10px",
+            borderRadius: "4px"
+          }}>
+            <div style={{
+              background: "white",
+              padding: "5px 10px",
+              borderRadius: "25px",
+              fontSize: "12px",
+              fontFamily: "Cera Pro",
+              fontWeight: "500",
+              whiteSpace: "nowrap"
+            }}>
+              7:00 - 9:00
             </div>
           </div>
         </div>
-        <div className="transparentes" style={{flex: '1 1 0', alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex'}}>
-          <div style={{alignSelf: 'stretch', flex: '1 1 0', paddingLeft: 5, paddingRight: 5, paddingTop: 0, paddingBottom: 0, background: 'rgba(255, 255, 255, 0.57)', overflow: 'hidden', outline: '1px rgba(0, 0, 0, 0.10) solid', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 10, display: 'flex'}}>
-            <div style={{textAlign: 'center', color: 'black', fontSize: 14, fontFamily: 'Cera Pro', fontWeight: '400'}}>Título de la conferencia</div>
-            <div style={{paddingLeft: 15, paddingRight: 15, paddingTop: 4, paddingBottom: 4, background: '#F75E63', borderRadius: 12, justifyContent: 'center', alignItems: 'center', gap: 25, display: 'inline-flex'}}>
-              <div style={{textAlign: 'center', color: 'white', fontSize: 12, fontFamily: 'Cera Pro', fontWeight: '700'}}>Lugar</div>
+
+        {/* Columna de eventos */}
+        <div style={{
+          flex: 1,
+          display: "flex",
+          flexDirection: "column",
+          gap: "10px"
+        }}>
+          {/* Evento 1 */}
+          <div style={{
+            flex: 1,
+            background: "rgba(255, 255, 255, 0.57)",
+            borderRadius: "4px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "5px",
+            padding: "10px",
+            border: "1px solid rgba(0, 0, 0, 0.1)"
+          }}>
+            <div style={{
+              fontSize: "14px",
+              fontFamily: "Cera Pro",
+              fontWeight: "400"
+            }}>
+              Título de la conferencia
+            </div>
+            <div style={{
+              background: "#F75E63",
+              padding: "4px 15px",
+              borderRadius: "12px"
+            }}>
+              <div style={{
+                color: "white",
+                fontSize: "12px",
+                fontFamily: "Cera Pro",
+                fontWeight: "700"
+              }}>
+                Lugar
+              </div>
             </div>
           </div>
-          <div style={{alignSelf: 'stretch', flex: '1 1 0', paddingLeft: 5, paddingRight: 5, paddingTop: 0, paddingBottom: 0, background: 'rgba(255, 255, 255, 0.57)', overflow: 'hidden', outline: '1px rgba(0, 0, 0, 0.10) solid', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 10, display: 'flex'}}>
-            <div style={{textAlign: 'center', color: 'black', fontSize: 14, fontFamily: 'Cera Pro', fontWeight: '400'}}>Título de la conferencia</div>
-            <div style={{paddingLeft: 15, paddingRight: 15, paddingTop: 4, paddingBottom: 4, background: '#42CDFF', borderRadius: 12, justifyContent: 'center', alignItems: 'center', gap: 25, display: 'inline-flex'}}>
-              <div style={{textAlign: 'center', color: 'white', fontSize: 12, fontFamily: 'Cera Pro', fontWeight: '700'}}>Lugar</div>
+
+          {/* Evento 2 */}
+          <div style={{
+            flex: 1,
+            background: "rgba(255, 255, 255, 0.57)",
+            borderRadius: "4px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "5px",
+            padding: "10px",
+            border: "1px solid rgba(0, 0, 0, 0.1)"
+          }}>
+            <div style={{
+              fontSize: "14px",
+              fontFamily: "Cera Pro",
+              fontWeight: "400"
+            }}>
+              Título de la conferencia
+            </div>
+            <div style={{
+              background: "#42CDFF",
+              padding: "4px 15px",
+              borderRadius: "12px"
+            }}>
+              <div style={{
+                color: "white",
+                fontSize: "12px",
+                fontFamily: "Cera Pro",
+                fontWeight: "700"
+              }}>
+                Lugar
+              </div>
             </div>
           </div>
-          <div style={{alignSelf: 'stretch', flex: '1 1 0', paddingLeft: 5, paddingRight: 5, paddingTop: 0, paddingBottom: 0, background: 'rgba(255, 255, 255, 0.57)', overflow: 'hidden', outline: '1px rgba(0, 0, 0, 0.10) solid', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 10, display: 'flex'}}>
-            <div style={{textAlign: 'center', color: 'black', fontSize: 14, fontFamily: 'Cera Pro', fontWeight: '400'}}>Título de la conferencia</div>
-            <div style={{paddingLeft: 15, paddingRight: 15, paddingTop: 4, paddingBottom: 4, background: '#FFDF62', borderRadius: 12, justifyContent: 'center', alignItems: 'center', gap: 25, display: 'inline-flex'}}>
-              <div style={{textAlign: 'center', color: 'white', fontSize: 12, fontFamily: 'Cera Pro', fontWeight: '700'}}>Lugar</div>
+
+          {/* Evento 3 */}
+          <div style={{
+            flex: 1,
+            background: "rgba(255, 255, 255, 0.57)",
+            borderRadius: "4px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "5px",
+            padding: "10px",
+            border: "1px solid rgba(0, 0, 0, 0.1)"
+          }}>
+            <div style={{
+              fontSize: "14px",
+              fontFamily: "Cera Pro",
+              fontWeight: "400"
+            }}>
+              Título de la conferencia
+            </div>
+            <div style={{
+              background: "#FFDF62",
+              padding: "4px 15px",
+              borderRadius: "12px"
+            }}>
+              <div style={{
+                color: "white",
+                fontSize: "12px",
+                fontFamily: "Cera Pro",
+                fontWeight: "700"
+              }}>
+                Lugar
+              </div>
             </div>
           </div>
-          <div style={{alignSelf: 'stretch', flex: '1 1 0', paddingLeft: 5, paddingRight: 5, paddingTop: 0, paddingBottom: 0, background: 'rgba(255, 255, 255, 0.57)', overflow: 'hidden', outline: '1px rgba(0, 0, 0, 0.10) solid', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 10, display: 'flex'}}>
-            <div style={{textAlign: 'center', color: 'black', fontSize: 14, fontFamily: 'Cera Pro', fontWeight: '400'}}>Título de la conferencia</div>
-            <div style={{paddingLeft: 15, paddingRight: 15, paddingTop: 4, paddingBottom: 4, background: '#C5F06F', borderRadius: 12, justifyContent: 'center', alignItems: 'center', gap: 25, display: 'inline-flex'}}>
-              <div style={{textAlign: 'center', color: 'white', fontSize: 12, fontFamily: 'Cera Pro', fontWeight: '700'}}>Lugar</div>
+
+          {/* Evento 4 */}
+          <div style={{
+            flex: 1,
+            background: "rgba(255, 255, 255, 0.57)",
+            borderRadius: "4px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "5px",
+            padding: "10px",
+            border: "1px solid rgba(0, 0, 0, 0.1)"
+          }}>
+            <div style={{
+              fontSize: "14px",
+              fontFamily: "Cera Pro",
+              fontWeight: "400"
+            }}>
+              Título de la conferencia
+            </div>
+            <div style={{
+              background: "#C5F06F",
+              padding: "4px 15px",
+              borderRadius: "12px"
+            }}>
+              <div style={{
+                color: "white",
+                fontSize: "12px",
+                fontFamily: "Cera Pro",
+                fontWeight: "700"
+              }}>
+                Lugar
+              </div>
             </div>
           </div>
         </div>
