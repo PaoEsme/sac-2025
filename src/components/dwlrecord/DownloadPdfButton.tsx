@@ -27,14 +27,15 @@ export default function DownloadPdfButton() {
                 justify-content: center;
                 align-items: center;
             `;
+
             
             const element = document.createElement('div');
             element.style.cssText = `
-                width: 595px;
-                height: 842px;
-                background: white;
-                position: relative;
-                overflow: hidden;
+            width: 850px; 
+            height: 1100px;
+            background: white;
+            position: relative;
+            overflow: visible; 
             `;
             
             container.appendChild(element);
@@ -46,8 +47,7 @@ export default function DownloadPdfButton() {
             
             // Esperar a que se carguen las imágenes y los estilos
             await new Promise(resolve => setTimeout(resolve, 2000));
-
-            // Importar html2pdf
+        
             const html2pdf = await import('html2pdf.js');
             
             const options = {
@@ -63,7 +63,7 @@ export default function DownloadPdfButton() {
                 },
                 jsPDF: {
                     unit: 'pt',
-                    format: 'a4',
+                    format: 'letter',
                     orientation: 'portrait'
                 }
             };
@@ -74,7 +74,6 @@ export default function DownloadPdfButton() {
                 .set(options)
                 .save()
                 .then(() => {
-                    // Limpiar después de generar el PDF
                     root.unmount();
                     document.body.removeChild(container);
                 })
@@ -114,7 +113,7 @@ export default function DownloadPdfButton() {
                 fontWeight: 'bold',
                 fontSize: '1.5rem'
             }}>
-                DOWNLOAD PDF
+                DESCARGA TU PDF
             </p>
         </div>
     );
