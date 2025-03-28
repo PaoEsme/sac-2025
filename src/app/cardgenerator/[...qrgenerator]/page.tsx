@@ -304,7 +304,7 @@ export default function Page() {
 
     return (
         <div className='w-full min-h-fit h-dvh pb-5 gap-5 bg-blacksac flex flex-col items-center'>
-            <Alert />
+            <Alert text='Registra tu tarjeta y úsala a lo largo de las diversas actividades. No olvides compartirla en Instagram y etiquetar a la Facultad ;)' />
             <div className='flex flex-col md:flex-row h-fit w-full md:w-108 px-5 pt-5 md:px-0 gap-5 justify-between'>
                 <button
                     onClick={() => uploadImage()}

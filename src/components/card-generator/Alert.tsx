@@ -1,6 +1,10 @@
 import React, { useState } from "react"
 
-export const Alert = () => {
+interface AlertProps {
+    text: string
+}
+
+const Alert: React.FC<AlertProps> = ({ text }) => {
     const [isHidden, setIsHidden] = useState<boolean>(false)
 
     const closeAlert = () => {
@@ -16,7 +20,8 @@ export const Alert = () => {
                         </path>
                     </svg>
         
-                    <p className="mx-3">Registra tu tarjeta y úsala a lo largo de las diversas actividades. No olvides compartirla en Instagram y etiquetar a la Facultad ;&#41;</p>
+                    {/* <p className="mx-3">Registra tu tarjeta y úsala a lo largo de las diversas actividades. No olvides compartirla en Instagram y etiquetar a la Facultad ;&#41;</p> */}
+                    <p className="mx-3">{text}</p>
                 </div>
         
                 <button
