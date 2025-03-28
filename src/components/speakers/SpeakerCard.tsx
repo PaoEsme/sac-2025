@@ -14,8 +14,7 @@ interface SpeakerCardProps {
 }
 
 const SpeakerCard: React.FC<SpeakerCardProps> = ({ speaker, index }) => {
-  const maxNameLength = 40;
-  const maxDescriptionLength = 100;
+  const maxDescriptionLength = 180;
 
   const truncateText = (text: string, maxLength: number) => {
     return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
@@ -39,9 +38,9 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({ speaker, index }) => {
           />
         </div>
 
-        <div className="text-black">
-          <h1 className="text-4xl mb-2">
-            {truncateText(speaker.name, maxNameLength)}
+        <div className="flex flex-col gap-2 text-black">
+          <h1 className="text-2xl">
+            {speaker.name}
           </h1>
           <p className="text-lg">
             {truncateText(speaker.description, maxDescriptionLength)}
