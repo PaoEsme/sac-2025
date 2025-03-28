@@ -18,15 +18,15 @@ interface ExpedienteData {
 function BodyComponent({ storedCode }: { storedCode: string | null }) {
   const [isClient, setIsClient] = useState(false);
 
-  const { fetchExpediente, loading, error, data } = useRecord<ExpedienteData>(); // Correcto: usa ExpedienteData como tipo genérico
+  const { fetchExpediente, loading, error, data } = useRecord<ExpedienteData>(); 
   
   useEffect(() => {
     setIsClient(true); 
   }, []);
 
-  if (!isClient || loading || error || !data) return null; // Asegúrate de que `data` esté disponible y evita renderizar nada en caso de error o carga
+  if (!isClient || loading || error || !data) return null; 
 
-  const expedienteData: ExpedienteData = data; // Ahora `data` tiene el tipo adecuado
+  const expedienteData: ExpedienteData = data; 
 
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center">
