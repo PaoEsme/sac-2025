@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import Swal from "sweetalert2";
+import Alert from "@/components/card-generator/Alert";
 
 const DynamicLego = dynamic(() => import("@/components/qrsearch/LegoInput"), {
   ssr: false,
@@ -70,6 +71,7 @@ export default function Page() {
 
   return (
     <div className="w-full h-full relative bg-linear-180 from-white to-sky-400">
+      <Alert text="No olvides registrar tu tarjeta una vez que la personalizes. Te permitirá acceder a tu hoja de asistencias" />
       <div className="w-full h-[92dvh] flex items-center justify-center">
         <form
           onSubmit={(e) => {
