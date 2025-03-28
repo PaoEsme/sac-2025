@@ -13,7 +13,7 @@ export default function About() {
           <h1 className="text-2xl md:text-6xl font-light text-blacksac">¿QUÉ ES LA SAC?</h1>
         </div>
 
-        <p className="pr-15 pl-15 md:p-10 text-lg md:text-4xl text-center font-light text-black">
+        <p className="pr-15 pl-15 md:p-10 md:text-4xl text-center font-light text-black">
           La Semana Académica y Cultural es el magno evento de la Facultad de Informática, este evento marca la celebración por el aniversario de su fundación. La SAC está hecha por y para toda la comunidad, crearás recuerdos, amistades, vínculos, conocimientos y experiencias que nunca olvidarás 🫶🏻
         </p>
 
