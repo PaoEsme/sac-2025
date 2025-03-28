@@ -1,6 +1,6 @@
 import React from "react";
 
-function Perfil() {
+function Perfil({ exp }: { exp: number }) {
   return (
     <>
     <div style={{ position: "absolute", top: "55px", left: "80px" }}>
@@ -27,7 +27,7 @@ function Perfil() {
             fontWeight: '700',
             marginTop: "-5px"
             }}>
-            000000
+            {exp}
             </div>
         </div>
       </div>

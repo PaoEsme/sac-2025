@@ -7,8 +7,21 @@ import Bloques2 from "./Bloques2";
 import Tablas from "./Tablas";
 import Background from "./Background";
 
-function PDF() {
-  return ( 
+interface PDFProps {
+  data: {
+    exp: number;
+    workshops: {
+      id: number;
+      nombre: string;
+      date: string;
+    }[];
+  };
+}
+
+function PDF({ data }: PDFProps) {
+  const { exp, workshops } = data;
+
+  return (
     <div style={{ width: "100%", height: "100%", position: "relative" }}>
       <div style={{ position: "absolute", width: "100%", height: "100%", zIndex: 0 }}>
         <Background />
@@ -18,10 +31,10 @@ function PDF() {
           <Bloques1 />
         </div>
         <div>
-          <Perfil />
+          <Perfil exp={exp} />
         </div>
         <div>
-          <Tablas />
+          <Tablas workshops={workshops} />
         </div>
         <div>
           <Bloques2 />
@@ -32,3 +45,4 @@ function PDF() {
 }
 
 export default PDF;
+

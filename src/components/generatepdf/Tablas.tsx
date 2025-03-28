@@ -1,6 +1,16 @@
 import React from "react";
 
-function Tablas() {
+interface Workshop {
+  id: number;
+  nombre: string;
+  date: string;
+}
+
+interface TablasProps {
+  workshops: Workshop[];
+}
+
+function Tablas({ workshops }: TablasProps) {
   const colors = {
     yellow: "#FFD83C",
     blue: "#42CDFF",
@@ -12,65 +22,92 @@ function Tablas() {
   };
 
   return (
-    <div style={{ 
-      width: "100%",
-      maxWidth: "700px",
-      margin: "0 auto",
-      marginTop: "310px",
-      padding: "40px 20px",
-      fontFamily: "'Cera Pro', Arial, sans-serif", 
-      background: "transparent",
-      position: "relative",
-      zIndex: 1,
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center"
-    }}>
-      <div style={{
-        width: "fit-content",
-        background: colors.yellow,
-        padding: "8px 20px",
-        borderRadius: "6px",
-        margin: "0 auto 30px auto", 
-        position: "relative", 
-        boxSizing: "border-box"
-      }}>
-        <h1 style={{
-          fontSize: "18px",
-          fontWeight: "700",
-          color: colors.white,
-          margin: "0",
-          padding: "0",
-          lineHeight: "1.2",
-          textAlign: "center",
+    <div
+      style={{
+        width: "100%",
+        maxWidth: "700px",
+        margin: "0 auto",
+        marginTop: "310px",
+        padding: "40px 20px",
+        fontFamily: "'Cera Pro', Arial, sans-serif",
+        background: "transparent",
+        position: "relative",
+        zIndex: 1,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center"
+      }}
+    >
+      <div
+        style={{
+          width: "fit-content",
+          background: colors.yellow,
+          padding: "8px 20px",
+          borderRadius: "6px",
+          margin: "0 auto 30px auto",
+          position: "relative",
           boxSizing: "border-box"
-        }}>
-          Martes, 31 de Febrero
-        </h1>
+        }}
+      >
+        {workshops.map((workshop) => {
+          const date = new Date(workshop.date);
+          const options: Intl.DateTimeFormatOptions = {
+            weekday: 'long',
+            day: 'numeric',
+            month: 'long'
+          };
+          const formattedDate = date.toLocaleDateString('es-ES', options); 
+
+          const capitalizeFirstLetter = (str: string) => {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+          };
+
+          const capitalizedFormattedDate = formattedDate
+            .split(' ')
+            .map((word) => capitalizeFirstLetter(word))
+            .join(' ');
+
+          return (
+            <h1
+              key={workshop.id}
+              style={{
+                fontSize: "18px",
+                fontWeight: "700",
+                color: colors.white,
+                margin: "0",
+                padding: "0",
+                lineHeight: "1.2",
+                textAlign: "center",
+                boxSizing: "border-box"
+              }}
+            >
+              {capitalizedFormattedDate}
+            </h1>
+          );
+        })}
       </div>
 
-      <div style={{
-        display: "flex",
-        gap: "15px",
-        width: "100%"
-      }}>
-        <div style={{
-          width: "120px",
+      <div
+        style={{
           display: "flex",
-          flexDirection: "column",
-          gap: "50px",
-          alignItems: "center"
-        }}>
-          {[
-            { time: "7:00 - 9:00", bgColor: colors.red },
-            { time: "7:00 - 9:00", bgColor: colors.blue },
-            { time: "7:00 - 9:00", bgColor: colors.yellow },
-            { time: "7:00 - 9:00", bgColor: colors.green }
-          ].map((item, index) => (
-            <div 
-              key={`time-${index}`}
+          gap: "15px",
+          width: "100%"
+        }}
+      >
+        <div
+          style={{
+            width: "120px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "50px",
+            alignItems: "center"
+          }}
+        >
+          {workshops.map((workshop) => (
+            <div
+              key={workshop.id}
               style={{
-                background: item.bgColor,
+                background: colors.red,
                 borderRadius: "6px",
                 padding: "15px 10px",
                 display: "flex",
@@ -80,36 +117,25 @@ function Tablas() {
                 boxSizing: "border-box"
               }}
             >
-              <div style={{
-                background: colors.white,
-                padding: "6px 12px",
-                borderRadius: "20px",
-                fontSize: "12px",
-                fontWeight: "500",
-                whiteSpace: "nowrap",
-                textAlign: "center"
-              }}>
-                {item.time}
+              <div style={{ background: colors.white, padding: "6px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "500", whiteSpace: "nowrap", textAlign: "center" }}>
+                {new Date(workshop.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
               </div>
             </div>
           ))}
         </div>
 
-        <div style={{
-          flex: 1,
-          display: "flex",
-          flexDirection: "column",
-          gap: "15px",
-          alignItems: "center"
-        }}>
-          {[
-            { title: "Título de la conferencia", place: "Lugar", color: colors.red },
-            { title: "Título de la conferencia", place: "Lugar", color: colors.blue },
-            { title: "Título de la conferencia", place: "Lugar", color: colors.yellow },
-            { title: "Título de la conferencia", place: "Lugar", color: colors.green }
-          ].map((event, index) => (
-            <div 
-              key={`event-${index}`}
+        <div
+          style={{
+            flex: 1,
+            display: "flex",
+            flexDirection: "column",
+            gap: "15px",
+            alignItems: "center"
+          }}
+        >
+          {workshops.map((workshop) => (
+            <div
+              key={workshop.id}
               style={{
                 background: "rgba(255, 255, 255, 0.57)",
                 borderRadius: "6px",
@@ -123,28 +149,34 @@ function Tablas() {
                 boxSizing: "border-box"
               }}
             >
-              <div style={{
-                fontSize: "14px",
-                fontWeight: "400",
-                color: colors.black,
-                textAlign: "center",
-                width: "100%"
-              }}>
-                {event.title}
+              <div
+                style={{
+                  fontSize: "14px",
+                  fontWeight: "400",
+                  color: colors.black,
+                  textAlign: "center",
+                  width: "100%"
+                }}
+              >
+                {workshop.nombre}
               </div>
-              <div style={{
-                background: event.color,
-                padding: "4px 15px",
-                borderRadius: "12px",
-                width: "fit-content"
-              }}>
-                <div style={{
-                  color: colors.white,
-                  fontSize: "12px",
-                  fontWeight: "700",
-                  textAlign: "center"
-                }}>
-                  {event.place}
+              <div
+                style={{
+                  background: colors.blue, 
+                  padding: "4px 15px",
+                  borderRadius: "12px",
+                  width: "fit-content"
+                }}
+              >
+                <div
+                  style={{
+                    color: colors.white,
+                    fontSize: "12px",
+                    fontWeight: "700",
+                    textAlign: "center"
+                  }}
+                >
+                  Lugar del evento
                 </div>
               </div>
             </div>

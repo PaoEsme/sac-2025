@@ -1,20 +1,37 @@
 import React, { useEffect, useState } from "react";
-import { createRoot } from 'react-dom/client';
+import { createRoot } from "react-dom/client";
 import PDF from "../generatepdf/PDF";
+import useRecord from "@/hooks/useRecord";
+
+interface Workshop {
+    id: number;
+    nombre: string;
+    date: string;
+}
+
+interface ExpedienteData {
+    exp: number;
+    workshops: Workshop[];
+}
 
 export default function DownloadPdfButton() {
     const [isClient, setIsClient] = useState(false);
+    const { fetchExpediente, loading, error, data } = useRecord<ExpedienteData>(); // Correcto: usa ExpedienteData como tipo genérico
 
     useEffect(() => {
-        setIsClient(typeof window !== 'undefined');
+        setIsClient(typeof window !== "undefined");
+
+        const storedCode = localStorage.getItem("expedienteCode");
+        if (storedCode) {
+            fetchExpediente("275931"); 
+        }
     }, []);
 
     const generatePDF = async () => {
-        if (!isClient) return;
+        if (!isClient || loading || error || !data) return; // Asegúrate de que `data` esté disponible
 
         try {
-            // Crear un contenedor visible para debug
-            const container = document.createElement('div');
+            const container = document.createElement("div");
             container.style.cssText = `
                 position: fixed;
                 top: 0;
@@ -28,48 +45,48 @@ export default function DownloadPdfButton() {
                 align-items: center;
             `;
 
-            
-            const element = document.createElement('div');
+            const element = document.createElement("div");
             element.style.cssText = `
-            width: 850px; 
-            height: 1100px;
-            background: white;
-            position: relative;
-            overflow: visible; 
+                width: 850px; 
+                height: 1100px;
+                background: white;
+                position: relative;
+                overflow: visible; 
             `;
-            
+
             container.appendChild(element);
             document.body.appendChild(container);
-            
-            // Renderizar el componente PDF
+
+            const expedienteData: ExpedienteData = data; // Ahora `data` tiene el tipo adecuado
+
+            // Renderizar el componente PDF con los datos obtenidos
             const root = createRoot(element);
-            root.render(<PDF />);
-            
-            // Esperar a que se carguen las imágenes y los estilos
-            await new Promise(resolve => setTimeout(resolve, 2000));
-        
-            const html2pdf = await import('html2pdf.js');
-            
+            root.render(<PDF data={expedienteData} />);
+
+            await new Promise((resolve) => setTimeout(resolve, 2000));
+
+            const html2pdf = await import("html2pdf.js");
+
             const options = {
                 margin: 0,
-                filename: 'horario.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
+                filename: "expediente.pdf",
+                image: { type: "jpeg", quality: 0.98 },
                 html2canvas: {
                     scale: 1,
                     useCORS: true,
                     logging: true,
                     allowTaint: true,
-                    backgroundColor: '#FFFFFF'
+                    backgroundColor: "#FFFFFF",
                 },
                 jsPDF: {
-                    unit: 'pt',
-                    format: 'letter',
-                    orientation: 'portrait'
-                }
+                    unit: "pt",
+                    format: "letter",
+                    orientation: "portrait",
+                },
             };
 
-            // Generar el PDF
-            await html2pdf.default()
+            await html2pdf
+                .default()
                 .from(element)
                 .set(options)
                 .save()
@@ -78,41 +95,42 @@ export default function DownloadPdfButton() {
                     document.body.removeChild(container);
                 })
                 .catch((err: Error) => {
-                    console.error('Error generando PDF:', err);
+                    console.error("Error generando PDF:", err);
                     root.unmount();
                     document.body.removeChild(container);
                 });
-
         } catch (error) {
-            console.error('Error al generar el PDF:', error);
-            alert('Hubo un error al generar el PDF. Por favor, intenta de nuevo.');
+            console.error("Error al generar el PDF:", error);
+            alert("Hubo un error al generar el PDF. Por favor, intenta de nuevo.");
         }
     };
 
     if (!isClient) return null;
 
     return (
-        <div 
-            onClick={generatePDF} 
+        <div
+            onClick={generatePDF}
             style={{
-                display: 'flex',
-                alignItems: 'center',
-                borderRadius: '9999px',
-                margin: 'auto',
-                width: 'fit-content',
-                height: '131px',
-                backgroundColor: '#FFDF62',
-                transition: 'all 100ms',
-                cursor: 'pointer'
+                display: "flex",
+                alignItems: "center",
+                borderRadius: "9999px",
+                margin: "auto",
+                width: "fit-content",
+                height: "131px",
+                backgroundColor: "#FFDF62",
+                transition: "all 100ms",
+                cursor: "pointer",
             }}
             className="hover:scale-106"
         >
-            <p style={{
-                alignSelf: 'center',
-                padding: '1.5rem',
-                fontWeight: 'bold',
-                fontSize: '1.5rem'
-            }}>
+            <p
+                style={{
+                    alignSelf: "center",
+                    padding: "1.5rem",
+                    fontWeight: "bold",
+                    fontSize: "1.5rem",
+                }}
+            >
                 DESCARGA TU PDF
             </p>
         </div>
