@@ -64,7 +64,7 @@
         {
           "time": "13:30",
           "items": [{ "title": "Emprendimiento en el mundo Nativo", "place": "Auditorio", "duration": [2,6]},
-          { "title": "Huawei", "place": "Sala de Usos Múltiples", "duration": [2,6] }]
+          { "title": "Radio Frecuencia by Huawei", "place": "Sala de Usos Múltiples", "duration": [2,6] }]
         },
         {
           "time": "15:00",
@@ -142,11 +142,15 @@
       "events": [
         {
           "time": "9:00",
-          "items": [{ "title": "Amazon", "place": "Sala de Usos Múltiples", "duration": [1, 12] }]
+          "items": [{ "title": "Web Services DC Queretaro by Amazon", "place": "Sala de Usos Múltiples", "duration": [1, 12] }]
         },
         {
           "time": "10:30",
           "items": [{ "title": "Concurso de Talentos", "place": "Coliseo", "duration": [2, 12] }]
+        },
+        {
+          "time": "10:30",
+          "items": [{ "title": "Lo que no se ve, también se mide: Análisis del espectro.", "place": "Coliseo", "duration": [2, 12] }]
         },
         {
           "time": "13:00",
