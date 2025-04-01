@@ -17,18 +17,19 @@ interface ExpedienteData {
 export default function DownloadPdfButton() {
     const [isClient, setIsClient] = useState(false);
     const { fetchExpediente, loading, error, data } = useRecord<ExpedienteData>();
+    const [storedCode, setStoredCode] = useState<string | null>(null);
 
     useEffect(() => {
         setIsClient(typeof window !== "undefined");
-
-        const storedCode = localStorage.getItem("expedienteCode");
-        if (storedCode) {
-            fetchExpediente(storedCode); 
+        const code = localStorage.getItem("expedienteCode");
+        setStoredCode(code);
+        if (code) {
+            fetchExpediente(code); 
         }
     }, []);
 
     const generatePDF = async () => {
-        if (!isClient || loading || error || !data) return; 
+        if (!isClient || loading || error || !data || !storedCode) return; 
 
         try {
             const container = document.createElement("div");
@@ -68,7 +69,7 @@ export default function DownloadPdfButton() {
 
             const options = {
                 margin: 0,
-                filename: "expediente.pdf",
+                filename: `${storedCode}.pdf`, 
                 image: { type: "jpeg", quality: 0.98 },
                 html2canvas: {
                     scale: 1,
