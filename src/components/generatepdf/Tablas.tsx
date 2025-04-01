@@ -21,6 +21,26 @@ function Tablas({ workshops }: TablasProps) {
     gray: "rgba(0, 0, 0, 0.1)"
   };
 
+  // Obtener fecha actual formateada
+  const getCurrentFormattedDate = () => {
+    const today = new Date();
+    const options: Intl.DateTimeFormatOptions = {
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long'
+    };
+    const formattedDate = today.toLocaleDateString('es-ES', options);
+
+    const capitalizeFirstLetter = (str: string) => {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    };
+
+    return formattedDate
+      .split(' ')
+      .map((word) => capitalizeFirstLetter(word))
+      .join(' ');
+  };
+
   return (
     <div
       style={{
@@ -38,6 +58,7 @@ function Tablas({ workshops }: TablasProps) {
         alignItems: "center"
       }}
     >
+      {/* Sección de fecha - Ahora muestra solo la fecha actual */}
       <div
         style={{
           width: "fit-content",
@@ -49,42 +70,20 @@ function Tablas({ workshops }: TablasProps) {
           boxSizing: "border-box"
         }}
       >
-        {workshops.map((workshop) => {
-          const date = new Date(workshop.date);
-          const options: Intl.DateTimeFormatOptions = {
-            weekday: 'long',
-            day: 'numeric',
-            month: 'long'
-          };
-          const formattedDate = date.toLocaleDateString('es-ES', options); 
-
-          const capitalizeFirstLetter = (str: string) => {
-            return str.charAt(0).toUpperCase() + str.slice(1);
-          };
-
-          const capitalizedFormattedDate = formattedDate
-            .split(' ')
-            .map((word) => capitalizeFirstLetter(word))
-            .join(' ');
-
-          return (
-            <h1
-              key={workshop.id}
-              style={{
-                fontSize: "18px",
-                fontWeight: "700",
-                color: colors.white,
-                margin: "0",
-                padding: "0",
-                lineHeight: "1.2",
-                textAlign: "center",
-                boxSizing: "border-box"
-              }}
-            >
-              {capitalizedFormattedDate}
-            </h1>
-          );
-        })}
+        <h1
+          style={{
+            fontSize: "18px",
+            fontWeight: "700",
+            color: colors.white,
+            margin: "0",
+            padding: "0",
+            lineHeight: "1.2",
+            textAlign: "center",
+            boxSizing: "border-box"
+          }}
+        >
+          {getCurrentFormattedDate()}
+        </h1>
       </div>
 
       <div

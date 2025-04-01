@@ -38,7 +38,7 @@ const LegoModal = () => {
             onChange={(e) => setExpediente(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSearch()}
             placeholder="Ingresa tu expediente..."
-            className="border-1 border-gray-700 rounded-3xl p-2 w-full focus:outline-none text-lg md:text-xl placeholder-gray-400"
+            className="border-1 border-gray-700 rounded-3xl p-2 w-full px-4 focus:outline-none text-lg md:text-xl placeholder-gray-400"
           />
           {error && <p style={{color: '#DC2626'}} className="mt-2 lg:mt-5 text-md lg:text-sm">{error}</p>}
         </>
