@@ -117,7 +117,7 @@ function Tablas({ workshops }: TablasProps) {
                 boxSizing: "border-box"
               }}
             >
-              <div style={{ background: colors.white, padding: "6px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "500", whiteSpace: "nowrap", textAlign: "center" }}>
+              <div style={{ background: colors.white, color: "#000000", padding: "6px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "500", whiteSpace: "nowrap", textAlign: "center" }}>
                 {new Date(workshop.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
               </div>
             </div>

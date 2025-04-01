@@ -14,6 +14,11 @@ const LegoModal = () => {
 
   React.useEffect(() => {
     if (data) {
+      const existingExpediente = localStorage.getItem("expedienteCode");
+      if (existingExpediente) {
+        localStorage.removeItem("expedienteCode");
+      }      
+      localStorage.setItem("expedienteCode", expediente);
       setIsOpen(true);
     }
   }, [data]);

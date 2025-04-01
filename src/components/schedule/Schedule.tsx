@@ -45,7 +45,7 @@ const Schedule = () => {
     <section id="schedule">
       {currentDay?.day !== undefined || currentDay?.events !== undefined ? (
         <div className="flex flex-col w-full p-2 justify-center items-center gap-5 mb-20 md:mt-40 md:mb-40">
-          <h1 className=" text-4xl md:text-7xl font-extralight tracking-wider">HORARIOS</h1>
+          <h1 className=" text-4xl md:text-7xl font-extralight tracking-wider colo text-blacksac">HORARIOS</h1>
           <div className="flex md:flex-row flex-wrap w-full p-1 items-center h-fit justify-around">
             {data.map((el, index) => {
               return (
@@ -84,8 +84,8 @@ const Schedule = () => {
                         }}
                       >
                         <div className="w-full h-full items-center flex justify-center flex-col gap-5">
-                          <h3 className=" font-medium">{item.title}</h3>
-                          <p className="bg-whitesac w-fit pr-5 pl-5 rounded-4xl font-bold">
+                          <h3 className="font-medium text-blacksac">{item.title}</h3>
+                          <p className="bg-whitesac w-fit pr-5 pl-5 rounded-4xl font-bold text-blacksac">
                             {item.place}
                           </p>
                         </div>

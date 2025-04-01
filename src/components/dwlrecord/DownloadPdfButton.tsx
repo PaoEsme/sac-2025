@@ -23,12 +23,12 @@ export default function DownloadPdfButton() {
 
         const storedCode = localStorage.getItem("expedienteCode");
         if (storedCode) {
-            fetchExpediente("275931"); 
+            fetchExpediente(storedCode); 
         }
     }, []);
 
     const generatePDF = async () => {
-        if (!isClient || loading || error || !data) return; // Asegúrate de que `data` esté disponible
+        if (!isClient || loading || error || !data) return; 
 
         try {
             const container = document.createElement("div");
