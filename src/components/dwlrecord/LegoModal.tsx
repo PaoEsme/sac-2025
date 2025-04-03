@@ -36,14 +36,14 @@ const LegoModal = () => {
 <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
                       text-whitesac font-bold text-xl bg-opacity-50 px-4 py-2 rounded-lg">
           COMING SOON...
-        </p>          {/* <input
+        </p>          <input
             type="number"
             value={expediente}
             onChange={(e) => setExpediente(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSearch()}
             placeholder="Ingresa tu expediente..."
-            className="border-1 border-gray-700 rounded-3xl p-2 w-full focus:outline-none text-lg md:text-xl placeholder-gray-400"
-          /> */}
+            className="border-1 border-gray-700 rounded-3xl p-2 w-full focus:outline-none text-lg md:text-xl placeholder-gray-400 hidden" // remove hidden to enable the input field
+          />
           {error && <p className="text-red-500 mt-2 lg:mt-5 text-md lg:text-sm">{error}</p>}
         </>
       ) : (
