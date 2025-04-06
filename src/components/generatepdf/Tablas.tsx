@@ -58,7 +58,6 @@ function Tablas({ workshops }: TablasProps) {
         alignItems: "center"
       }}
     >
-      {/* Sección de fecha - Ahora muestra solo la fecha actual */}
       <div
         style={{
           width: "fit-content",
