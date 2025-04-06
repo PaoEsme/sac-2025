@@ -1,11 +1,9 @@
 import { useState } from "react";
-//Pa no morir ignorado
-type ExpedienteData = number;
 
-const useRecord = () => {
+const useRecord = <T>() => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
-  const [data, setData] = useState<ExpedienteData | null>(null);
+  const [data, setData] = useState<T | null>(null);
 
   const fetchExpediente = async (expediente: string) => {
     if (!expediente.trim()) return;
@@ -21,7 +19,7 @@ const useRecord = () => {
         throw new Error(response.statusText || "Error al buscar expediente");
       }
 
-      const result: ExpedienteData = await response.json();
+      const result: T = await response.json();
       setData(result);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Error desconocido");

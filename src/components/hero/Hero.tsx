@@ -55,7 +55,7 @@ export default function Hero() {
         </p>
 
         <div className=" flex flex-row w-full justify-end gap-5 pr-10 h-10">
-          <p className=" text-xl md:text-2xl">Scroll</p>
+          <p className=" text-xl md:text-2xl text-blacksac">Scroll</p>
           <Image alt="" src={downArrow} className=" animate-bounce h-full" />
         </div>
       </div>

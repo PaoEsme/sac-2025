@@ -1,23 +1,61 @@
 "use client";
-
 import React from "react";
-import TopImage from "./TopImage";
+import Perfil from "./Perfil";
+import Bloques1 from "./Bloques1";
+import Bloques2 from "./Bloques2";
+import Tablas from "./Tablas";
+import Background from "./Background";
 
-function BackgroundComponent() {
-  const style = { 
-    backgroundImage: "url('/FondoPDF.png')", 
-    backgroundSize: "cover", 
-    backgroundPosition: "center", 
-    height: "100vh", 
-    width: "100vh"
+interface PDFProps {
+  data: {
+    exp: number;
+    workshops: {
+      id: number;
+      nombre: string;
+      date: string;
+    }[];
   };
-
-  return <div style={style}>
-    <TopImage />
-  </div>;
 }
 
-export default BackgroundComponent;
+function PDF({ data }: PDFProps) {
+  return (
+    <div style={{ 
+      width: "100%",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      backgroundColor: "white",
+      position: "relative", // Añadido
+      minHeight: "100vh",
+      paddingBottom: "150px"
+    }}>
+  
+      <Background />
 
+      <div style={{ 
+        width: "100%",
+        maxWidth: "820px", // Ancho máximo para contenido
+        position: "relative"
+      }}>
+        <Bloques1 />   
+        <Perfil exp={data.exp} />
+        <Tablas workshops={data.workshops} />
+        </div>
 
+      <div style={{ 
+        position: "fixed",
+        bottom: "40px",
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: "100%",
+        maxWidth: "1000px",
+        zIndex: 3
+      }}>
+        <Bloques2 />
+      </div>
+    </div>
+  );
+}
+
+export default PDF;
 

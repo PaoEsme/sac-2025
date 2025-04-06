@@ -84,8 +84,8 @@ const Schedule = () => {
                         }}
                       >
                         <div className="w-full h-full items-center flex justify-center flex-col gap-5">
-                          <h3 className=" font-medium">{item.title}</h3>
-                          <p className="bg-whitesac w-fit pr-5 pl-5 rounded-4xl font-bold">
+                          <h3 className="font-medium text-blacksac">{item.title}</h3>
+                          <p className="bg-whitesac w-fit pr-5 pl-5 rounded-4xl font-bold text-blacksac">
                             {item.place}
                           </p>
                         </div>

@@ -17,7 +17,7 @@ const SectionButtons = ({ image, url, title, color, identation }: props) => {
         <Image alt="" src={image} width={50} height={50}/>
       </div>
 
-      <p className="hidden lg:flex"> {title} </p>
+      <p className="hidden lg:flex text-blacksac"> {title}</p>
     </Link>
   );
 };

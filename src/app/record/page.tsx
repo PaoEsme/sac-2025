@@ -127,7 +127,7 @@ export default function Record() {
             <AttendanceSheet width={getSvgWidth()} height={getSvgHeight()} />
 
             {/* Texto sobre el SVG */}
-            <span className="absolute top-[42%] text-center xs:text-xs sm:text-[20px] md:text-[24px] lg:text-[2rem] z-2 lg:top-[25%]">
+            <span className="absolute top-[42%] text-center xs:text-xs sm:text-[20px] md:text-[24px] lg:text-[2rem] z-2 lg:top-[25%] text-blacksac">
               GENERAR HOJA DE ASISTENCIAS
               {/* Línea de degradado */}
               <div className="absolute left-1/2 h-[4px] w-full bg-[linear-gradient(90deg,#F75E63_0%,#F75E63_25%,#42CDFF_25%,#42CDFF_50%,#C5F06F_50%,#C5F06F_75%,#FFDF62_75%,#FFDF62_100%)] transform -translate-x-1/2" />

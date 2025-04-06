@@ -33,6 +33,7 @@ export default function Page() {
             cancelButtonText: "Cancelar",
           }).then((result) => {
             if (result.isConfirmed) {
+              localStorage.setItem("expedienteCode", code); // Guardar en localStorage
               setIsLoading(true);
               router.push(`/charactereditor/${code}`);
             }
@@ -53,6 +54,7 @@ export default function Page() {
           if (result.isConfirmed) {
             router.push(data.url_image);
           } else if (result.dismiss === Swal.DismissReason.cancel) {
+            localStorage.setItem("expedienteCode", code); 
             router.push(`/charactereditor/${code}`);
           }
         });
