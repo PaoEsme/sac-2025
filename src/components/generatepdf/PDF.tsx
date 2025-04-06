@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import Perfil from "./Perfil";
 import Bloques1 from "./Bloques1";
@@ -19,26 +18,40 @@ interface PDFProps {
 }
 
 function PDF({ data }: PDFProps) {
-  const { exp, workshops } = data;
-
   return (
-    <div style={{ width: "100%", height: "100%", position: "relative" }}>
-      <div style={{ position: "absolute", width: "100%", height: "100%", zIndex: 0 }}>
-        <Background />
-      </div>
-      <div style={{ position: "relative", zIndex: 1 }}>
-        <div>
-          <Bloques1 />
+    <div style={{ 
+      width: "100%",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      backgroundColor: "white",
+      position: "relative", // Añadido
+      minHeight: "100vh",
+      paddingBottom: "150px"
+    }}>
+  
+      <Background />
+
+      <div style={{ 
+        width: "100%",
+        maxWidth: "820px", // Ancho máximo para contenido
+        position: "relative"
+      }}>
+        <Bloques1 />   
+        <Perfil exp={data.exp} />
+        <Tablas workshops={data.workshops} />
         </div>
-        <div>
-          <Perfil exp={exp} />
-        </div>
-        <div>
-          <Tablas workshops={workshops} />
-        </div>
-        <div>
-          <Bloques2 />
-        </div>
+
+      <div style={{ 
+        position: "fixed",
+        bottom: "40px",
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: "100%",
+        maxWidth: "1000px",
+        zIndex: 3
+      }}>
+        <Bloques2 />
       </div>
     </div>
   );

@@ -10,100 +10,54 @@ interface TablasProps {
   workshops: Workshop[];
 }
 
-function Tablas({ workshops }: TablasProps) {
+function Tablas({ workshops = [] }: TablasProps) { // Fallback para workshops undefined
   const colors = {
-    yellow: "#FFD83C",
     blue: "#42CDFF",
     red: "#F75E63",
-    green: "#C5F06F",
     white: "#FFFFFF",
     black: "#000000",
     gray: "rgba(0, 0, 0, 0.1)"
   };
 
-  // Obtener fecha actual formateada
-  const getCurrentFormattedDate = () => {
-    const today = new Date();
-    const options: Intl.DateTimeFormatOptions = {
-      weekday: 'long',
-      day: 'numeric',
-      month: 'long'
-    };
-    const formattedDate = today.toLocaleDateString('es-ES', options);
+  const WORKSHOP_HEIGHT = 80;
 
-    const capitalizeFirstLetter = (str: string) => {
-      return str.charAt(0).toUpperCase() + str.slice(1);
-    };
-
-    return formattedDate
-      .split(' ')
-      .map((word) => capitalizeFirstLetter(word))
-      .join(' ');
-  };
+  if (workshops.length === 0) {
+    return (
+      <div style={{ 
+        width: "100%",
+        textAlign: "center",
+        padding: "20px",
+        color: colors.black,
+        fontFamily: "'Cera Pro', Arial, sans-serif"
+      }}>
+        No hay talleres programados
+      </div>
+    );
+  }
 
   return (
-    <div
-      style={{
+    <div style={{ 
+      width: "100%",
+      marginTop: "40px"
+    }}>
+      <div style={{
+        display: "flex",
+        gap: "15px",
         width: "100%",
         maxWidth: "700px",
         margin: "0 auto",
-        marginTop: "310px",
-        padding: "40px 20px",
-        fontFamily: "'Cera Pro', Arial, sans-serif",
-        background: "transparent",
-        position: "relative",
-        zIndex: 1,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center"
-      }}
-    >
-      <div
-        style={{
-          width: "fit-content",
-          background: colors.yellow,
-          padding: "8px 20px",
-          borderRadius: "6px",
-          margin: "0 auto 30px auto",
-          position: "relative",
-          boxSizing: "border-box"
-        }}
-      >
-        <h1
-          style={{
-            fontSize: "18px",
-            fontWeight: "700",
-            color: colors.white,
-            margin: "0",
-            padding: "0",
-            lineHeight: "1.2",
-            textAlign: "center",
-            boxSizing: "border-box"
-          }}
-        >
-          {getCurrentFormattedDate()}
-        </h1>
-      </div>
-
-      <div
-        style={{
+        padding: "0 20px"
+      }}>
+        {/* Columna de horarios */}
+        <div style={{
+          width: "120px",
           display: "flex",
-          gap: "15px",
-          width: "100%"
-        }}
-      >
-        <div
-          style={{
-            width: "120px",
-            display: "flex",
-            flexDirection: "column",
-            gap: "50px",
-            alignItems: "center"
-          }}
-        >
+          flexDirection: "column",
+          gap: "15px"
+        }}>
           {workshops.map((workshop) => (
             <div
-              key={workshop.id}
+              key={`time-${workshop.id}`}
               style={{
                 background: colors.red,
                 borderRadius: "6px",
@@ -111,69 +65,55 @@ function Tablas({ workshops }: TablasProps) {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                width: "100%",
-                boxSizing: "border-box"
+                height: `${WORKSHOP_HEIGHT}px`
               }}
             >
-              <div style={{ background: colors.white, color: "#000000", padding: "6px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "500", whiteSpace: "nowrap", textAlign: "center" }}>
+              <div style={{ 
+                background: colors.white, 
+                color: colors.black, 
+                padding: "6px 12px", 
+                borderRadius: "20px", 
+                fontSize: "12px", 
+                fontWeight: "500"
+              }}>
                 {new Date(workshop.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
               </div>
             </div>
           ))}
         </div>
 
-        <div
-          style={{
-            flex: 1,
-            display: "flex",
-            flexDirection: "column",
-            gap: "15px",
-            alignItems: "center"
-          }}
-        >
+        {/* Columna de eventos */}
+        <div style={{
+          flex: 1,
+          display: "flex",
+          flexDirection: "column",
+          gap: "15px"
+        }}>
           {workshops.map((workshop) => (
             <div
-              key={workshop.id}
+              key={`event-${workshop.id}`}
               style={{
                 background: "rgba(255, 255, 255, 0.57)",
                 borderRadius: "6px",
                 padding: "15px",
                 border: `1px solid ${colors.gray}`,
+                height: `${WORKSHOP_HEIGHT}px`,
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "center",
-                gap: "8px",
-                width: "100%",
-                boxSizing: "border-box"
+                justifyContent: "center"
               }}
             >
-              <div
-                style={{
-                  fontSize: "14px",
-                  fontWeight: "400",
-                  color: colors.black,
-                  textAlign: "center",
-                  width: "100%"
-                }}
-              >
+              <div style={{ fontSize: "14px", fontWeight: "500" }}>
                 {workshop.nombre}
               </div>
-              <div
-                style={{
-                  background: colors.blue, 
-                  padding: "4px 15px",
-                  borderRadius: "12px",
-                  width: "fit-content"
-                }}
-              >
-                <div
-                  style={{
-                    color: colors.white,
-                    fontSize: "12px",
-                    fontWeight: "700",
-                    textAlign: "center"
-                  }}
-                >
+              <div style={{
+                background: colors.blue, 
+                padding: "4px 15px",
+                borderRadius: "12px",
+                width: "fit-content",
+                marginTop: "8px"
+              }}>
+                <div style={{ color: colors.white, fontSize: "12px", fontWeight: "700" }}>
                   Lugar del evento
                 </div>
               </div>
