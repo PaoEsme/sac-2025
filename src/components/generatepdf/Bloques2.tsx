@@ -2,91 +2,24 @@ import React from "react";
 
 function Bloques2() {
   return (
-    <div style={{
-      position: 'absolute',
-      bottom: '0px',
-      width: '85px%',
-      zIndex: 2
+    <div style={{ 
+      width: '8.5in', 
+      height: '11in',
+      position: 'relative',
+      margin: '0 auto',
+      overflow: 'hidden',
+      display: 'flex',
+      alignItems: 'flex-end'
     }}>
-      <div style={{width: '100%', height: '100%', justifyContent: 'flex-start', alignItems: 'center', display: 'inline-flex'}}>
-        <div style={{width: 35, height: 29, position: 'relative', overflow: 'hidden'}}>
-            <div style={{width: 20, height: 5.46, left: 6.33, top: 0, position: 'absolute', background: '#42CDFF'}} />
-            <div style={{width: 35, height: 23.54, left: 0, top: 5.46, position: 'absolute', background: '#42CDFF'}} />
-        </div>
-        <div style={{width: 60, height: 29, position: 'relative'}}>
-            <div style={{width: 20, height: 5.46, left: 8.02, top: 0, position: 'absolute', background: '#F75E63'}} />
-            <div style={{width: 20, height: 5.46, left: 31.22, top: 0, position: 'absolute', background: '#F75E63'}} />
-            <div style={{width: 60, height: 23.54, left: 0, top: 5.46, position: 'absolute', background: '#F75E63'}} />
-        </div>
-        <div style={{width: 35, height: 29, position: 'relative', overflow: 'hidden'}}>
-            <div style={{width: 20, height: 5.46, left: 6.33, top: 0, position: 'absolute', background: '#C5F06F'}} />
-            <div style={{width: 35, height: 23.54, left: 0, top: 5.46, position: 'absolute', background: '#C5F06F'}} />
-        </div>
-        <div style={{width: 60, height: 29, position: 'relative'}}>
-            <div style={{width: 20, height: 5.46, left: 8.02, top: 0, position: 'absolute', background: '#FFDF62'}} />
-            <div style={{width: 20, height: 5.46, left: 31.22, top: 0, position: 'absolute', background: '#FFDF62'}} />
-            <div style={{width: 60, height: 23.54, left: 0, top: 5.46, position: 'absolute', background: '#FFDF62'}} />
-        </div>
-        <div style={{width: 60, height: 29, position: 'relative'}}>
-            <div style={{width: 20, height: 5.46, left: 8.02, top: 0, position: 'absolute', background: '#42CDFF'}} />
-            <div style={{width: 20, height: 5.46, left: 31.22, top: 0, position: 'absolute', background: '#42CDFF'}} />
-            <div style={{width: 60, height: 23.54, left: 0, top: 5.46, position: 'absolute', background: '#42CDFF'}} />
-        </div>
-        <div style={{width: 35, height: 29, position: 'relative', overflow: 'hidden'}}>
-            <div style={{width: 20, height: 5.46, left: 6.33, top: 0, position: 'absolute', background: '#F75E63'}} />
-            <div style={{width: 35, height: 23.54, left: 0, top: 5.46, position: 'absolute', background: '#F75E63'}} />
-        </div>
-        <div style={{width: 60, height: 29, position: 'relative'}}>
-            <div style={{width: 20, height: 5.46, left: 8.02, top: 0, position: 'absolute', background: '#FFDF62'}} />
-            <div style={{width: 20, height: 5.46, left: 31.22, top: 0, position: 'absolute', background: '#FFDF62'}} />
-            <div style={{width: 60, height: 23.54, left: 0, top: 5.46, position: 'absolute', background: '#FFDF62'}} />
-        </div>
-        <div style={{width: 35, height: 29, position: 'relative', overflow: 'hidden'}}>
-            <div style={{width: 20, height: 5.46, left: 6.33, top: 0, position: 'absolute', background: '#C5F06F'}} />
-            <div style={{width: 35, height: 23.54, left: 0, top: 5.46, position: 'absolute', background: '#C5F06F'}} />
-        </div>
-        <div style={{width: 35, height: 29, position: 'relative', overflow: 'hidden'}}>
-            <div style={{width: 20, height: 5.46, left: 6.33, top: 0, position: 'absolute', background: '#F75E63'}} />
-            <div style={{width: 35, height: 23.54, left: 0, top: 5.46, position: 'absolute', background: '#F75E63'}} />
-        </div>
-        <div style={{width: 60, height: 29, position: 'relative'}}>
-            <div style={{width: 20, height: 5.46, left: 8.02, top: 0, position: 'absolute', background: '#42CDFF'}} />
-            <div style={{width: 20, height: 5.46, left: 31.22, top: 0, position: 'absolute', background: '#42CDFF'}} />
-            <div style={{width: 60, height: 23.54, left: 0, top: 5.46, position: 'absolute', background: '#42CDFF'}} />
-        </div>
-        <div style={{width: 60, height: 29, position: 'relative'}}>
-            <div style={{width: 20, height: 5.46, left: 8.02, top: 0, position: 'absolute', background: '#FFDF62'}} />
-            <div style={{width: 20, height: 5.46, left: 31.22, top: 0, position: 'absolute', background: '#FFDF62'}} />
-            <div style={{width: 60, height: 23.54, left: 0, top: 5.46, position: 'absolute', background: '#FFDF62'}} />
-        </div>
-        <div style={{width: 35, height: 29, position: 'relative', overflow: 'hidden'}}>
-            <div style={{width: 20, height: 5.46, left: 6.33, top: 0, position: 'absolute', background: '#C5F06F'}} />
-            <div style={{width: 35, height: 23.54, left: 0, top: 5.46, position: 'absolute', background: '#C5F06F'}} />
-        </div>
-        <div style={{width: 60, height: 29, position: 'relative'}}>
-            <div style={{width: 20, height: 5.46, left: 8.02, top: 0, position: 'absolute', background: '#F75E63'}} />
-            <div style={{width: 20, height: 5.46, left: 31.22, top: 0, position: 'absolute', background: '#F75E63'}} />
-            <div style={{width: 60, height: 23.54, left: 0, top: 5.46, position: 'absolute', background: '#F75E63'}} />
-        </div>
-        <div style={{width: 60, height: 29, position: 'relative'}}>
-            <div style={{width: 20, height: 5.46, left: 8.02, top: 0, position: 'absolute', background: '#42CDFF'}} />
-            <div style={{width: 20, height: 5.46, left: 31.22, top: 0, position: 'absolute', background: '#42CDFF'}} />
-            <div style={{width: 60, height: 23.54, left: 0, top: 5.46, position: 'absolute', background: '#42CDFF'}} />
-        </div>
-        <div style={{width: 35, height: 29, position: 'relative', overflow: 'hidden'}}>
-            <div style={{width: 20, height: 5.46, left: 6.33, top: 0, position: 'absolute', background: '#FFDF62'}} />
-            <div style={{width: 35, height: 23.54, left: 0, top:5.46, position: 'absolute', background: '#FFDF62'}} />
-        </div>
-        <div style={{width: 60, height: 29, position: 'relative'}}>
-            <div style={{width: 20, height: 5.46, left: 8.02, top: 0, position: 'absolute', background: '#C5F06F'}} />
-            <div style={{width: 20, height: 5.46, left: 31.22, top:0, position: 'absolute', background: '#C5F06F'}} />
-            <div style={{width: 60, height: 23.54, left: 0, top: 5.46, position: 'absolute', background: '#C5F06F'}} />
-        </div>
-        <div style={{width: 35, height: 29, position: 'relative', overflow: 'hidden'}}>
-            <div style={{width: 20, height: 5.46, left: 6.33, top: 0, position: 'absolute', background: '#42CDFF'}} />
-            <div style={{width: 35, height: 23.54, left: 0, top: 5.46, position: 'absolute', background: '#42CDFF'}} />
-        </div>
-      </div>
+      <img 
+        src="/Bloques2.svg" 
+        alt="Bloques2" 
+        style={{ 
+          width: '100%',
+          maxHeight: '100px',
+          objectFit: 'contain'
+        }} 
+      />
     </div>
   );
 }
