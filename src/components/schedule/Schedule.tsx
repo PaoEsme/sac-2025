@@ -42,10 +42,10 @@ const Schedule = () => {
   };
 
   return (
-    <section id="schedule">
+    <section id="schedule" className="xl:pt-40">
       {currentDay?.day !== undefined || currentDay?.events !== undefined ? (
-        <div className="flex flex-col w-full p-2 justify-center items-center gap-5 mb-20 md:mt-40 md:mb-40">
-          <h1 className=" text-4xl md:text-7xl font-extralight tracking-wider colo text-blacksac">HORARIOS</h1>
+        <div className="flex flex-col w-full p-2 justify-center items-center gap-5">
+          <h1 className=" text-4xl md:text-7xl font-extralight tracking-wider">HORARIOS</h1>
           <div className="flex md:flex-row flex-wrap w-full p-1 items-center h-fit justify-around">
             {data.map((el, index) => {
               return (
