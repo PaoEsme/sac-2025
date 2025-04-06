@@ -103,20 +103,10 @@ function Tablas({ workshops = [] }: TablasProps) { // Fallback para workshops un
                 justifyContent: "center"
               }}
             >
-              <div style={{ fontSize: "14px", fontWeight: "500" }}>
+              <div style={{ fontSize: "14px", fontWeight: "500", color: "black", marginBottom: "15px"}}>
                 {workshop.nombre}
               </div>
-              <div style={{
-                background: colors.blue, 
-                padding: "4px 15px",
-                borderRadius: "12px",
-                width: "fit-content",
-                marginTop: "8px"
-              }}>
-                <div style={{ color: colors.white, fontSize: "12px", fontWeight: "700" }}>
-                  Lugar del evento
-                </div>
-              </div>
+              
             </div>
           ))}
         </div>

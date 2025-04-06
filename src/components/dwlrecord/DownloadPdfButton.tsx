@@ -17,7 +17,7 @@ interface ExpedienteData {
 
 export default function DownloadPdfButton() {
   const [isGenerating, setIsGenerating] = useState(false);
-  const { fetchExpediente, loading, error, data } = useRecord<ExpedienteData>();
+  const { fetchExpediente, data } = useRecord<ExpedienteData>();
   const [storedCode, setStoredCode] = useState<string | null>(null);
 
   // Ahora useEffect está correctamente importado
@@ -78,7 +78,7 @@ export default function DownloadPdfButton() {
           },
           jsPDF: {
             unit: "mm",
-            format: [210, element.scrollHeight * 0.264583 + 20],
+            format: "a4",
             orientation: "portrait"
           }
         })

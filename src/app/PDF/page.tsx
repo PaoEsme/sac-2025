@@ -15,10 +15,9 @@ interface ExpedienteData {
   workshops: Workshop[];
 }
 
-function BodyComponent({ storedCode }: { storedCode: string | null }) {
+function BodyComponent() { 
   const [isClient, setIsClient] = useState(false);
-
-  const { fetchExpediente, loading, error, data } = useRecord<ExpedienteData>(); 
+  const { loading, error, data } = useRecord<ExpedienteData>();
   
   useEffect(() => {
     setIsClient(true); 
@@ -26,22 +25,26 @@ function BodyComponent({ storedCode }: { storedCode: string | null }) {
 
   if (!isClient || loading || error || !data) return null; 
 
-  const expedienteData: ExpedienteData = data; 
-
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center">
       <div className="absolute inset-0 bg-cover bg-no-repeat" />
-      <PDF data={expedienteData} />
+      <PDF data={data} /> 
     </div>
   );
 }
 
 const PDFPage: React.FC = () => {
-  const storedCode = localStorage.getItem("expedienteCode") || "";
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) return null;
 
   return (
     <main className="relative min-h-screen flex flex-col items-center justify-center">
-      <BodyComponent storedCode={storedCode} />
+      <BodyComponent />
     </main>
   );
 };

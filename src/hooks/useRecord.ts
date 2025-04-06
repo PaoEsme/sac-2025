@@ -1,10 +1,5 @@
 import { useState } from "react";
 
-type ExpedienteData = {
-  exp: number;
-  workshops: { id: number; nombre: string; date: string }[];
-};
-
 const useRecord = <T>() => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
